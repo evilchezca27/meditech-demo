@@ -88,15 +88,5 @@
         <footer class="form-footer"><span>© 2026 Meditech Services</span><span>Interfaz de demostración</span></footer>
       </section>
     </main>
-    <script>
-      document.addEventListener('submit', function (){
-        sessionStorage.setItem('meditech_logged_in', '1');
-      });
-      document.querySelectorAll('button, a').forEach(function (el)){
-        el.addEventListener('click', function (){
-          sessionStorage.setItem('meditech_logged_in', '1');
-        });
-      });
-    </script>
   </body>
 </html>
