@@ -1233,7 +1233,9 @@ try {
   activeRole.textContent = `${demoRoleLabels[currentRole]} · demo`;
 } catch (error) { activeRole.textContent = 'Operador · Almacén · demo'; }
 document.querySelector('.logout-link').addEventListener('click', () => {
-  try { sessionStorage.removeItem('meditech-demo-role'); } catch (error) { /* Estado temporal de la maqueta. */ }
+  try { sessionStorage.removeItem('meditech-demo-role');
+      localStorage.removeItem('meditech-demo-role');
+  } catch (error) { /* Estado temporal de la maqueta. */ }
 });
 render();
 
