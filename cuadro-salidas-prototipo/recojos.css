@@ -1,0 +1,63 @@
+.pickup-main .page-heading { align-items: center; }
+.pickup-main .summary-grid { margin-bottom: 17px; }
+.pickup-main .table-toolbar { align-items: flex-end; }
+.pickup-main .table-controls { flex-wrap: wrap; justify-content: flex-end; }
+.pickup-main .search-box { width: 265px; }
+.pickup-table-scroll { width: 100%; overflow-x: auto; }
+.pickup-table { min-width: 1160px; width: 100%; font-size: 10px; }
+.pickup-table th { position: sticky; top: 0; z-index: 1; background: #fafbfe; color: #6d7a91; font-size: 9px; }
+.pickup-table td { vertical-align: middle; }
+.pickup-table td:first-child { font-weight: 700; color: #365fb7; }
+.pickup-main .cell-primary { display: block; color: #263550; font-size: 10px; }
+.pickup-subline { display: block; color: #8995a9; font-size: 9px; margin-top: 4px; }
+.pickup-file-link { display: block; max-width: 170px; overflow: hidden; color: #315ebd; font-size: 9px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; text-decoration: none; }
+.pickup-file-link:hover { text-decoration: underline; }
+.pickup-no-evidence { color: #9aa4b3; font-size: 9px; }
+.pickup-action { border: 1px solid #dce5f7; border-radius: 5px; background: #f1f5ff; color: #315ebd; padding: 6px 9px; font-size: 9px; font-weight: 700; }
+.pickup-action:hover { background: #e4edff; }
+.pickup-action.view { background: #fff; border-color: #e2e7ef; color: #5e6c83; }
+.pickup-empty { min-height: 155px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #8290a6; gap: 7px; font-size: 10px; }
+.pickup-empty[hidden] { display: none; }
+.pickup-empty > span { color: #92a3c2; font-size: 27px; }
+.pickup-empty strong { color: #3b4a64; font-size: 12px; }
+.pickup-empty small { color: #8995a9; font-size: 9px; }
+.pickup-flow-note { display: flex; gap: 11px; align-items: flex-start; margin-top: 15px; border: 1px solid #dfe8f8; border-radius: 9px; padding: 14px 16px; background: #f4f7fd; }
+.pickup-note-icon { flex: 0 0 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; background: #e3ecff; color: #3d67bd; font: 700 12px 'Segoe UI', sans-serif; }
+.pickup-flow-note strong { display: block; color: #344562; font-size: 10px; margin: 2px 0 4px; }
+.pickup-flow-note p { color: #71809b; font-size: 9px; line-height: 1.55; margin: 0; max-width: 900px; }
+.pickup-main .module-feedback { margin: 12px 0 0; border: 1px solid #d8e4fb; border-radius: 7px; padding: 9px 12px; background: #f4f7ff; color: #46629b; font-size: 10px; }
+.pickup-dialog { width: min(740px, calc(100vw - 26px)); max-height: min(90vh, 850px); padding: 0; border: 1px solid #e4e9f1; border-radius: 12px; box-shadow: 0 24px 70px #0e1e3a35; }
+.pickup-dialog::backdrop { background: #13243d70; backdrop-filter: blur(3px); }
+.pickup-dialog form { padding: 22px; }
+.pickup-dialog .dialog-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 8px; }
+.pickup-dialog .dialog-heading h2 { margin: 0; color: #1c2a44; font: 750 19px 'Segoe UI', sans-serif; letter-spacing: -.03em; }
+.pickup-dialog .dialog-note { color: #7c899d; font-size: 10px; line-height: 1.5; margin: 8px 0 16px; }
+.pickup-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.pickup-form-grid label { display: flex; flex-direction: column; gap: 6px; color: #57657d; font-size: 9px; font-weight: 700; }
+.pickup-form-grid .form-wide { grid-column: 1 / -1; }
+.pickup-form-grid input, .pickup-form-grid select, .pickup-form-grid textarea { width: 100%; min-height: 36px; border: 1px solid #dfe5ef; border-radius: 6px; background: #fff; padding: 8px 10px; color: #273650; font-size: 10px; outline: none; }
+.pickup-form-grid textarea { min-height: 62px; resize: vertical; }
+.pickup-form-grid input:focus, .pickup-form-grid select:focus, .pickup-form-grid textarea:focus { border-color: #7da0ef; box-shadow: 0 0 0 3px #4e7be51c; }
+.pickup-evidence-section { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px 14px; margin-top: 17px; border: 1px dashed #cbd7e8; border-radius: 8px; padding: 12px; background: #fbfcfe; }
+.pickup-evidence-section strong { display: block; color: #364660; font-size: 10px; margin-bottom: 4px; }
+.pickup-evidence-section p { color: #8591a5; font-size: 9px; line-height: 1.45; margin: 0; }
+.pickup-upload-button { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; min-height: 32px; border: 1px solid #dce5f7; border-radius: 6px; padding: 0 10px; color: #315ebd; background: #f1f5ff; font-size: 9px; font-weight: 700; white-space: nowrap; }
+.pickup-upload-button input { display: none; }
+.pickup-evidence-list { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; color: #52617a; font-size: 9px; }
+.pickup-evidence-list a { color: #315ebd; font-weight: 700; text-decoration: none; }
+.pickup-evidence-list a:hover { text-decoration: underline; }
+.remove-evidence-button { justify-self: start; grid-column: 1 / -1; border: 0; padding: 0; color: #a84242; background: transparent; font-size: 9px; font-weight: 700; }
+.pickup-dialog .dialog-feedback { border-radius: 6px; padding: 9px 10px; margin: 12px 0 0; color: #a84242; background: #fff0f0; font-size: 9px; }
+.pickup-dialog .dialog-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 17px; }
+@media (max-width: 900px) { .pickup-main .table-toolbar { align-items: stretch; flex-direction: column; } .pickup-main .table-controls { justify-content: flex-start; } }
+@media (max-width: 680px) {
+  .pickup-main { padding: 0 13px 18px; }
+  .pickup-main .page-heading { align-items: stretch; flex-direction: column; }
+  .pickup-main .demo-badge { display: none; }
+  .pickup-main .search-box { width: min(100%, 300px); }
+  .pickup-form-grid { grid-template-columns: 1fr; }
+  .pickup-form-grid .form-wide { grid-column: auto; }
+  .pickup-evidence-section { grid-template-columns: 1fr; }
+  .pickup-upload-button { justify-self: start; }
+  .pickup-dialog form { padding: 17px; }
+}

@@ -1,0 +1,132 @@
+:root {
+  color-scheme: light;
+  --navy: #101f38;
+  --blue: #3567d5;
+  --ink: #1d2b43;
+  --muted: #7d8aa0;
+  --line: #e5eaf2;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: #f7f8fb;
+}
+
+* { box-sizing: border-box; }
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+
+.login-shell { min-height: 100vh; display: grid; grid-template-columns: minmax(440px, 1.04fr) minmax(460px, .96fr); }
+.brand-panel { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh; padding: 35px clamp(36px, 6vw, 90px) 26px; color: #fff; background: radial-gradient(ellipse at 83% 18%, #244678 0, transparent 34%), linear-gradient(145deg, #10213c 0%, #132d50 52%, #173b61 100%); }
+.brand-panel::before { position: absolute; z-index: -1; right: -210px; bottom: 7%; width: 560px; height: 560px; border: 1px solid #ffffff0e; border-radius: 50%; content: ''; box-shadow: 0 0 0 55px #ffffff06, 0 0 0 110px #ffffff04; }
+.brand-panel-glow { position: absolute; z-index: -1; border-radius: 50%; filter: blur(2px); pointer-events: none; }
+.glow-one { top: 12%; right: 13%; width: 8px; height: 8px; background: #78a8ff; box-shadow: 0 0 22px 8px #4586fb44; }
+.glow-two { right: 6%; bottom: 29%; width: 5px; height: 5px; background: #65d8b0; box-shadow: 0 0 18px 6px #65d8b033; }
+.brand-content { width: min(100%, 570px); margin: 0 auto; }
+.brand-lockup { display: inline-flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+.brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid #ffffff35; border-radius: 13px; background: linear-gradient(145deg, #4f80e9, #3260c1); box-shadow: 0 8px 24px #081a344f; color: white; font: 800 21px 'Segoe UI', sans-serif; }
+.brand-name strong { display: block; font: 800 13px 'Segoe UI', sans-serif; letter-spacing: .16em; }
+.brand-name small { display: block; margin-top: 4px; color: #9fb1cf; font-size: 8px; font-weight: 700; letter-spacing: .25em; }
+.brand-message { margin-top: clamp(52px, 8vh, 90px); }
+.brand-kicker, .form-eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #9eb8e8; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
+.brand-kicker i, .preview-label i { width: 7px; height: 7px; border-radius: 50%; background: #69d2a3; box-shadow: 0 0 0 4px #69d2a322; }
+.brand-message h1 { margin: 17px 0 14px; color: #fff; font: 750 clamp(34px, 4vw, 51px)/1.12 'Segoe UI', sans-serif; letter-spacing: -.05em; }
+.brand-message h1 em { color: #85aaff; font-style: normal; }
+.brand-message p { max-width: 440px; margin: 0; color: #b2c0d5; font-size: 13px; line-height: 1.8; }
+.journey-card { margin-top: clamp(34px, 6vh, 57px); padding: 18px 20px 14px; border: 1px solid #ffffff1b; border-radius: 14px; background: linear-gradient(130deg, #ffffff11, #ffffff08); box-shadow: 0 16px 44px #07172c22; backdrop-filter: blur(10px); }
+.journey-heading, .journey-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.journey-heading { color: #9fb1cc; font-size: 8px; font-weight: 800; letter-spacing: .13em; }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #66d3a4; box-shadow: 0 0 0 4px #66d3a41c; }
+.journey-line { position: relative; display: grid; gap: 0; margin-top: 15px; }
+.journey-line::before { position: absolute; top: 15px; bottom: 27px; left: 14px; width: 1px; background: linear-gradient(#59c49c 0 48%, #7396d4 48%); content: ''; }
+.journey-step { position: relative; display: flex; align-items: center; gap: 12px; min-height: 53px; }
+.journey-icon { z-index: 1; width: 29px; height: 29px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #5abf99; border-radius: 50%; background: #183e55; color: #80e0b8; font-size: 12px; font-weight: 800; }
+.journey-step div { display: grid; gap: 4px; }
+.journey-step strong { color: #edf3ff; font-size: 10px; font-weight: 700; }
+.journey-step small { color: #96a9c5; font-size: 8px; }
+.journey-step.current .journey-icon { border-color: #79a2f4; background: #315991; color: #fff; }
+.journey-tag { margin-left: auto; padding: 5px 7px; border: 1px solid #91adf34d; border-radius: 99px; background: #4167a433; color: #b8ccff; font-size: 7px; font-weight: 800; letter-spacing: .08em; }
+.journey-footer { margin-top: 9px; padding-top: 11px; border-top: 1px solid #ffffff16; color: #91a5c2; font-size: 8px; }
+.order-ref { color: #d3def2; font-weight: 700; letter-spacing: .05em; }
+.brand-footnote { display: flex; align-items: center; gap: 8px; margin: 19px 0 0; color: #93a7c5; font-size: 9px; }
+.shield-icon { display: inline-grid; place-items: center; width: 20px; height: 20px; border: 1px solid #ffffff20; border-radius: 6px; color: #8cb1ff; }
+.brand-bottom { display: flex; justify-content: space-between; gap: 15px; max-width: 570px; width: 100%; margin: 35px auto 0; color: #7389aa; font-size: 7px; font-weight: 800; letter-spacing: .12em; }
+
+.form-panel { min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; padding: 26px clamp(26px, 4.8vw, 68px) 21px; background: linear-gradient(145deg, #fff 0%, #fcfdff 56%, #f7f9fd 100%); }
+.form-panel-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; color: #8793a7; font-size: 9px; }
+.preview-label { display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid #dce9e3; border-radius: 99px; background: #f5fbf8; color: #397a60; font-size: 8px; font-weight: 800; letter-spacing: .06em; white-space: nowrap; }
+.preview-label i { width: 6px; height: 6px; box-shadow: none; }
+.help-caption { text-align: right; }
+.help-caption strong { color: #416dcc; font-weight: 700; }
+.password-label-row a:hover { text-decoration: underline; }
+.login-card { width: min(100%, 410px); margin: 35px auto; }
+.mobile-brand { display: none; align-items: center; gap: 9px; margin-bottom: 32px; color: #21324c; font-size: 11px; letter-spacing: .12em; }
+.mobile-brand .brand-mark { width: 33px; height: 33px; border-radius: 10px; font-size: 17px; }
+.form-heading { margin-bottom: 28px; }
+.form-eyebrow { color: #5272b0; font-size: 8px; }
+.form-heading h2 { margin: 12px 0 7px; color: #1c2b44; font: 750 29px/1.2 'Segoe UI', sans-serif; letter-spacing: -.045em; }
+.form-heading p { margin: 0; color: #7f8ba0; font-size: 11px; line-height: 1.6; }
+.input-label { display: block; margin-bottom: 8px; color: #34435d; font-size: 10px; font-weight: 700; }
+.role-label { margin-top: 18px; }
+.input-wrap { position: relative; display: flex; align-items: center; height: 47px; border: 1px solid #dfe5ee; border-radius: 8px; background: #fff; transition: border-color .15s, box-shadow .15s; }
+.input-wrap:focus-within { border-color: #6c8fdf; box-shadow: 0 0 0 4px #3567d514; }
+.input-icon { width: 17px; height: 17px; flex: 0 0 auto; margin-left: 14px; fill: none; stroke: #8d9ab0; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.input-wrap input { width: 100%; height: 100%; min-width: 0; border: 0; outline: 0; padding: 0 12px; border-radius: inherit; background: transparent; color: #24334c; font-size: 11px; }
+.input-wrap input::placeholder { color: #a4adbb; }
+.role-wrap select { width: 100%; height: 100%; appearance: none; border: 0; outline: 0; padding: 0 35px 0 12px; border-radius: inherit; background: transparent; color: #24334c; font-size: 11px; }
+.select-chevron { position: absolute; right: 15px; color: #8190a8; font-size: 17px; pointer-events: none; }
+.password-label-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 21px; }
+.password-label-row .input-label { margin-bottom: 8px; }
+.password-label-row a { margin-bottom: 8px; color: #416dcc; font-size: 9px; font-weight: 700; text-decoration: none; }
+.password-toggle { width: 38px; height: 38px; flex: 0 0 auto; display: grid; place-items: center; margin-right: 4px; border: 0; border-radius: 7px; background: transparent; color: #7f8ba0; }
+.password-toggle:hover { background: #f3f6fb; color: #3b5f9f; }
+.password-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.demo-note { display: flex; align-items: flex-start; gap: 9px; margin: 18px 0 14px; padding: 10px 11px; border: 1px solid #e6edf8; border-radius: 7px; background: #f7f9fd; color: #71809b; font-size: 8px; line-height: 1.5; }
+.demo-note-icon { width: 15px; height: 15px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid #a9bad7; border-radius: 50%; color: #5571a4; font: 700 9px Georgia, serif; }
+.submit-button { width: 100%; min-height: 47px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 0; border-radius: 8px; background: linear-gradient(100deg, #3566d2, #4779e4); box-shadow: 0 8px 18px #3567d52c; color: #fff; font-size: 11px; font-weight: 800; transition: transform .15s, box-shadow .15s, filter .15s; }
+.submit-button:hover { transform: translateY(-1px); box-shadow: 0 11px 21px #3567d539; filter: saturate(1.07); }
+.submit-button:active { transform: translateY(0); }
+.submit-button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.form-message { margin: 10px 0 0; color: #a14e4e; font-size: 9px; line-height: 1.5; }
+.login-divider { display: flex; align-items: center; gap: 10px; margin: 29px 0 13px; }
+.login-divider span { height: 1px; flex: 1; background: #e9edf3; }
+.login-divider small { color: #a0a9b8; font-size: 7px; font-weight: 800; letter-spacing: .13em; white-space: nowrap; }
+.login-support { margin: 0; color: #8490a4; font-size: 9px; text-align: center; }
+.form-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #a0a9b7; font-size: 8px; }
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .brand-panel { padding-top: 24px; }
+  .brand-message { margin-top: 40px; }
+  .brand-message h1 { font-size: 40px; }
+  .journey-card { margin-top: 27px; }
+  .login-card { margin-top: 15px; margin-bottom: 15px; }
+}
+@media (max-width: 900px) {
+  .login-shell { grid-template-columns: minmax(300px, .85fr) minmax(410px, 1.15fr); }
+  .brand-panel { padding-right: 30px; padding-left: 30px; }
+  .brand-message h1 { font-size: 38px; }
+  .journey-card { padding-right: 15px; padding-left: 15px; }
+  .form-panel { padding-right: 28px; padding-left: 28px; }
+}
+@media (max-width: 700px) {
+  body { background: #fff; }
+  .login-shell { display: block; min-height: 100svh; }
+  .brand-panel { display: none; }
+  .form-panel { min-height: 100svh; padding: 18px 22px 16px; }
+  .form-panel-top { justify-content: flex-end; }
+  .help-caption { display: none; }
+  .login-card { width: min(100%, 430px); margin: auto; padding: 25px 0; }
+  .mobile-brand { display: flex; }
+  .form-heading { margin-bottom: 25px; }
+  .form-heading h2 { font-size: 27px; }
+  .form-footer { width: min(100%, 430px); margin: 0 auto; }
+}
+@media (max-width: 380px) {
+  .form-panel { padding-right: 17px; padding-left: 17px; }
+  .login-card { padding-top: 19px; padding-bottom: 19px; }
+  .form-heading h2 { font-size: 25px; }
+  .password-label-row a { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
