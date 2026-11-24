@@ -34,7 +34,9 @@ loginForm.addEventListener('submit', (event) => {
     passwordInput.focus();
     return;
   }
-  try { sessionStorage.setItem('meditech-demo-role', roleSelect.value);
-   localStorage.setItem('meditech-demo-role', roleSelect.value);
+  try {
+    sessionStorage.setItem('meditech-demo-role', roleSelect.value);
+    localStorage.setItem('meditech-demo-role', roleSelect.value);
   } catch (error) { /* Solo es un dato temporal para la maqueta. */ }
+  window.location.href = 'index.html';
 });
