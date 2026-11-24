@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <title>Recojo de material | Meditech</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232563eb'/><text x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='36'>M</text></svg>" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="recojos.css" />
+    <script src="recojos.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegación del módulo">
+        <div class="brand-lockup"><div class="brand-mark" aria-hidden="true">M</div><div><strong>MEDITECH</strong><span>Operaciones</span></div></div>
+        <div class="sidebar-label">MÓDULOS</div>
+        <a class="nav-link" href="index.html"><span class="nav-icon" aria-hidden="true">▦</span><span>Cuadro de Salidas</span></a>
+        <a class="nav-link" href="salida-internamiento.html"><span class="nav-icon" aria-hidden="true">⇢</span><span>Pedidos e Internamiento</span></a>
+        <a class="nav-link" href="convocatorias.html"><span class="nav-icon" aria-hidden="true">♧</span><span>Convocatorias</span></a>
+        <a class="nav-link active" href="recojos.html" aria-current="page"><span class="nav-icon" aria-hidden="true">↩</span><span>Recojo de material</span></a>
+        <a class="nav-link" href="muestras.html"><span class="nav-icon" aria-hidden="true">❖</span><span>Control de muestras</span></a>
+        <div class="sidebar-label catalog-label">CATÁLOGOS</div>
+        <button class="nav-link nav-button" id="manage-institutions-link" type="button">
+          <span class="nav-icon" aria-hidden="true">⌂</span>
+          <span>Instituciones</span>
+        </button>
+        <button class="nav-link nav-button" id="manage-people-link" type="button">
+          <span class="nav-icon" aria-hidden="true">♙</span>
+          <span>Personal operativo</span>
+        </button>
+        <div class="sidebar-foot"><span class="status-dot"></span><span class="sidebar-foot-label">Prototipo local</span><a class="logout-link" href="login.html" title="Volver al inicio de sesión">Salir <span aria-hidden="true">↗</span></a></div>
+      </aside>
+
+      <main class="main-content pickup-main">
+        <header class="topbar">
+          <div class="breadcrumb">Sistema web <span>/</span> Operaciones <span>/</span> <strong>Recojo y Lavado</strong></div>
+          <div class="role-and-demo"><span class="role-badge" id="active-role">Operador · demo</span><div class="demo-badge"><span></span> DEMOSTRACIÓN · DATOS FICTICIOS</div></div>
+        </header>
+
+        <section class="page-heading">
+          <div>
+            <p class="eyebrow">MÓDULO OPERATIVO</p>
+            <h1>Recojo de material y Lavado</h1>
+            <p class="page-description">Sigue el recojo después de la cirugía y mide los tiempos del material enviado a lavandería (San Martín de Porres).</p>
+          </div>
+          <button class="primary-button" id="new-pickup-button" type="button"><span aria-hidden="true">＋</span> Registrar recojo</button>
+        </section>
+
+        <section class="summary-grid" aria-label="Resumen de recojos">
+          <article class="summary-card"><span class="summary-icon blue">↩</span><div><span class="summary-label">Registros en seguimiento</span><strong id="summary-total">0</strong></div></article>
+          <article class="summary-card"><span class="summary-icon amber">◷</span><div><span class="summary-label">Pendientes de recojo</span><strong id="summary-pending">0</strong></div></article>
+          <article class="summary-card"><span class="summary-icon purple">⭮</span><div><span class="summary-label">En lavado (San Martín)</span><strong id="summary-washing">0</strong></div></article>
+        </section>
+
+        <section class="table-card">
+          <div class="table-toolbar">
+            <div><h2>Seguimiento de recojos y estado de lavado</h2></div>
+            <div class="table-controls">
+              <label class="search-box"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Buscar salida, paciente o conductor" /></label>
+              
+              <label class="filter-label" for="status-filter">Recojo</label>
+              <select id="status-filter">
+                <option value="todos">Todos</option>
+                <option value="Pendiente de recojo">Pendiente de recojo</option>
+                <option value="Recogido">Recogido</option>
+                <option value="Cancelado">Cancelado</option>
+              </select>
+
+              <label class="filter-label" for="washing-filter">Lavado</label>
+              <select id="washing-filter">
+                <option value="todos">Todos</option>
+                <option value="En lavado (San Martín)">En lavado (San Martín)</option>
+                <option value="Lavado y listo">Lavado y listo</option>
+                <option value="No aplica">No aplica</option>
+              </select>
+            </div>
+          </div>
+          <div class="pickup-table-scroll">
+            <table class="pickup-table">
+              <thead><tr><th>Recojo</th><th>Salida / Pedido</th><th>Institución</th><th>Conductor</th><th>Estado Recojo</th><th>Estado Lavado</th><th>Trazabilidad Lavado</th><th>Evidencia</th><th>Acción</th></tr></thead>
+              <tbody id="pickups-body"></tbody>
+            </table>
+            <div class="pickup-empty" id="empty-state" hidden><span>↩</span><strong>No hay recojos que coincidan.</strong><small>Cuando una salida pase su hora de cirugía aparecerá aquí automáticamente.</small></div>
+          </div>
+          <footer class="table-footer"><span id="record-count">0 registros</span><span>Sincronizado con Cuadro de Salidas.</span></footer>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="pickup-dialog" class="record-dialog pickup-dialog">
+      <form id="pickup-form">
+        <div class="dialog-heading">
+          <div><p class="eyebrow" id="dialog-eyebrow">NUEVO REGISTRO</p><h2 id="dialog-title">Registrar recojo y lavado</h2></div>
+          <button class="icon-button" id="close-dialog" type="button" aria-label="Cerrar">×</button>
+        </div>
+        <p class="dialog-note">Actualiza el recojo y registra las fechas de envío y retorno de San Martín de Porres.</p>
+        <div class="pickup-form-grid">
+          <label class="form-wide">Salida relacionada <select name="orderId" id="linked-order"><option value="">Seleccionar salida</option></select></label>
+          <label>Paciente<input name="patient" type="text" placeholder="Nombre del paciente" /></label>
+          <label>Clínica / hospital<input name="institution" type="text" placeholder="Institución" /></label>
+          <label>Conductor que recoge<select name="driver" id="driver-select"><option value="">Seleccionar conductor</option></select></label>
+          
+          <label>Estado del recojo
+            <select name="status">
+              <option value="Pendiente de recojo">Pendiente de recojo</option>
+              <option value="Recogido">Recogido</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
+          </label>
+          
+          <label>Estado de lavado
+            <select name="washingStatus" id="washing-select">
+              <option value="No aplica">No aplica / Pendiente</option>
+              <option value="En lavado (San Martín)">En lavado (San Martín)</option>
+              <option value="Lavado y listo">Lavado y listo (Pueblo Libre)</option>
+            </select>
+          </label>
+
+          <label>Fecha de recojo<input name="pickupDate" type="date" /></label>
+          <label>Hora de recojo<input name="pickupTime" type="time" /></label>
+
+          <label>Fecha envío a lavar (SMP)<input name="sentToWashDate" type="date" /></label>
+          <label>Fecha retorno (Listo en PL)<input name="returnedFromWashDate" type="date" /></label>
+
+          <label class="form-wide">Observaciones<textarea name="notes" maxlength="500" placeholder="Novedad al recoger o enviar a lavar"></textarea></label>
+        </div>
+        <section class="pickup-evidence-section" aria-labelledby="pickup-evidence-title">
+          <div><strong id="pickup-evidence-title">Evidencia del recojo</strong><p>Adjunta fotos de la entrega o la guía firmada. PDF, JPG o PNG.</p></div>
+          <label class="pickup-upload-button" for="evidence-upload"><span>＋ Adjuntar archivos</span><input id="evidence-upload" type="file" accept="application/pdf,image/png,image/jpeg" multiple /></label>
+          <div class="pickup-evidence-list" id="evidence-list"></div>
+          <button class="remove-evidence-button" id="remove-evidence-button" type="button" hidden>Quitar evidencias</button>
+        </section>
+        <p class="dialog-feedback" id="dialog-feedback" role="status" hidden></p>
+        <div class="dialog-actions"><button class="secondary-button" id="cancel-dialog" type="button">Cancelar</button><button class="primary-button" id="save-pickup" type="submit">Guardar</button></div>
+      </form>
+    </dialog>
+
+    <dialog id="institutions-dialog" class="record-dialog catalog-dialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">CATÁLOGO SEPARADO</p>
+          <h2>Instituciones</h2>
+        </div>
+        <button class="icon-button" id="close-institutions-button" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <p class="dialog-note">Administra la lista que aparecerá en los desplegables del sistema.</p>
+      <form id="institution-form" class="institution-form">
+        <label>Nombre<input name="institutionName" type="text" placeholder="Clínica, hospital, doctor o casa comercial" required /></label>
+        <label>Tipo
+          <select name="institutionType">
+            <option value="Clínica">Clínica</option>
+            <option value="Hospital">Hospital</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Casa Comercial">Casa Comercial</option>
+            <option value="Otra institución">Otra institución</option>
+          </select>
+        </label>
+        <div class="catalog-form-actions">
+          <button class="primary-button" id="institution-submit-button" type="submit">Añadir institución</button>
+          <button class="secondary-button" id="cancel-institution-edit" type="button" hidden>Cancelar edición</button>
+        </div>
+      </form>
+      <p id="institution-feedback" class="institution-feedback" role="status" hidden></p>
+      <div class="institution-list-heading"><strong>Instituciones disponibles</strong><span id="institution-count">0</span></div>
+      <ul id="institutions-list" class="institutions-list"></ul>
+    </dialog>
+
+    <dialog id="people-dialog" class="record-dialog catalog-dialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="eyebrow">CATÁLOGO SEPARADO</p>
+          <h2>Personal operativo</h2>
+        </div>
+        <button class="icon-button" id="close-people-button" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <p class="dialog-note">Añade personas para que aparezcan en los desplegables del sistema.</p>
+      <div class="people-catalog-grid">
+        <section class="catalog-panel" aria-labelledby="instrumentists-title">
+          <h3 id="instrumentists-title">Instrumentistas</h3>
+          <form id="instrumentist-form" class="catalog-add-form">
+            <label>Nombre<input name="personName" type="text" placeholder="Nombre del instrumentista" required /></label>
+            <div class="catalog-form-actions">
+              <button class="primary-button" id="instrumentist-submit-button" type="submit">Añadir</button>
+              <button class="secondary-button" id="cancel-instrumentist-edit" type="button" hidden>Cancelar</button>
+            </div>
+          </form>
+          <p id="instrumentist-feedback" class="institution-feedback" role="status" hidden></p>
+          <ul id="instrumentists-list" class="institutions-list"></ul>
+        </section>
+        <section class="catalog-panel" aria-labelledby="drivers-title">
+          <h3 id="drivers-title">Conductores</h3>
+          <form id="driver-form" class="catalog-add-form">
+            <label>Nombre<input name="personName" type="text" placeholder="Nombre del conductor" required /></label>
+            <div class="catalog-form-actions">
+              <button class="primary-button" id="driver-submit-button" type="submit">Añadir</button>
+              <button class="secondary-button" id="cancel-driver-edit" type="button" hidden>Cancelar</button>
+            </div>
+          </form>
+          <p id="driver-feedback" class="institution-feedback" role="status" hidden></p>
+          <ul id="drivers-list" class="institutions-list"></ul>
+        </section>
+      </div>
+    </dialog>
+  </body>
+</html>

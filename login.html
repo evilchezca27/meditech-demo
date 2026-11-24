@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101f38" />
+    <meta name="description" content="Acceso al sistema de operaciones Meditech Services." />
+    <title>Iniciar sesión | Meditech</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232563eb'/><text x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='36'>M</text></svg>" />
+    <link rel="stylesheet" href="login.css" />
+    <script src="login.js" defer></script>
+  </head>
+  <body>
+    <main class="login-shell">
+      <section class="brand-panel" aria-label="Meditech, trazabilidad de operaciones">
+        <div class="brand-panel-glow glow-one" aria-hidden="true"></div>
+        <div class="brand-panel-glow glow-two" aria-hidden="true"></div>
+        <div class="brand-content">
+          <a class="brand-lockup" href="login.html" aria-label="Meditech, inicio">
+            <span class="brand-mark" aria-hidden="true">M</span>
+            <span class="brand-name"><strong>MEDITECH</strong><small>SERVICES</small></span>
+          </a>
+
+          <div class="brand-message">
+            <span class="brand-kicker"><i></i> OPERACIONES CONECTADAS</span>
+            <h1>Cada movimiento,<br /><em>con su historia.</em></h1>
+            <p>Pedidos, materiales y evidencias organizados en un solo lugar para que el equipo siga cada etapa con claridad.</p>
+          </div>
+
+          <div class="journey-card" aria-label="Etapas de trazabilidad">
+            <div class="journey-heading"><span>SEGUIMIENTO DE UN PEDIDO</span><span class="live-dot" aria-hidden="true"></span></div>
+            <div class="journey-line">
+              <div class="journey-step complete"><span class="journey-icon" aria-hidden="true">✓</span><div><strong>Pedido generado</strong><small>Información centralizada</small></div></div>
+              <div class="journey-step complete"><span class="journey-icon" aria-hidden="true">✓</span><div><strong>Preparación</strong><small>Material y evidencias</small></div></div>
+              <div class="journey-step current"><span class="journey-icon" aria-hidden="true">↗</span><div><strong>En internamiento</strong><small>Seguimiento de entrega</small></div><span class="journey-tag">EN CURSO</span></div>
+            </div>
+            <div class="journey-footer"><span class="order-ref">PED-2026-0024</span><span>3 etapas visibles</span></div>
+          </div>
+
+          <p class="brand-footnote"><span class="shield-icon" aria-hidden="true">◈</span> Información organizada para el equipo de operaciones</p>
+        </div>
+        <div class="brand-bottom"><span>MEDITECH SERVICES</span><span>TRAZABILIDAD · CONTROL · SEGUIMIENTO</span></div>
+      </section>
+
+      <section class="form-panel" aria-label="Formulario de inicio de sesión">
+        <div class="form-panel-top"><span class="preview-label"><i></i> VISTA DE PROTOTIPO</span><span class="help-caption">¿Necesitas ayuda? <strong>Contacta al administrador</strong></span></div>
+
+        <div class="login-card">
+          <div class="mobile-brand" aria-hidden="true"><span class="brand-mark">M</span><strong>MEDITECH</strong></div>
+          <div class="form-heading">
+            <span class="form-eyebrow">PORTAL DE OPERACIONES</span>
+            <h2>Bienvenido de nuevo</h2>
+            <p>Ingresa tus datos para continuar al sistema.</p>
+          </div>
+
+          <form id="login-form" novalidate>
+            <label class="input-label" for="username">Usuario o correo electrónico</label>
+            <div class="input-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.4-3.2 3.2-5.4 7-5.4s6.6 2.2 7 5.4"></path></svg>
+              <input id="username" name="username" type="text" placeholder="Escribe tu usuario" autocomplete="username" required />
+            </div>
+
+            <label class="input-label role-label" for="access-role">Rol de acceso</label>
+            <div class="input-wrap role-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20v-1.5a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4V20"></path><circle cx="9" cy="7" r="3"></circle><path d="M16 11a3 3 0 1 0 0-6m1 9h1a4 4 0 0 1 4 4v2"></path></svg>
+              <select id="access-role" name="role" autocomplete="off" required><option value="operator">Operador · Almacén</option><option value="administrator">Administrador · Administración y Finanzas</option><option value="chief">Jefatura · solo lectura</option></select>
+              <span class="select-chevron" aria-hidden="true">⌄</span>
+            </div>
+
+            <div class="password-label-row"><label class="input-label" for="password">Contraseña</label><a id="forgot-password" href="#recuperar">¿Olvidaste tu contraseña?</a></div>
+            <div class="input-wrap password-wrap">
+              <svg class="input-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+              <input id="password" name="password" type="password" placeholder="Escribe tu contraseña" autocomplete="current-password" required />
+              <button class="password-toggle" id="toggle-password" type="button" aria-label="Mostrar contraseña" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.3-6 9.5-6 9.5 6 9.5 6-3.3 6-9.5 6-9.5-6-9.5-6Z"></path><circle cx="12" cy="12" r="2.6"></circle></svg>
+              </button>
+            </div>
+
+            <div class="demo-note"><span class="demo-note-icon" aria-hidden="true">i</span><span>Prototipo visual: el rol es demostrativo; todavía no valida permisos ni credenciales reales.</span></div>
+            <button class="submit-button" type="submit"><span>Ingresar al sistema</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></button>
+            <p class="form-message" id="form-message" role="status" hidden></p>
+          </form>
+
+          <div class="login-divider"><span></span><small>ACCESO PARA EL EQUIPO</small><span></span></div>
+          <p class="login-support">¿Aún no tienes acceso? Solicítalo a la jefatura de tu área.</p>
+        </div>
+
+        <footer class="form-footer"><span>© 2026 Meditech Services</span><span>Interfaz de demostración</span></footer>
+      </section>
+    </main>
+  </body>
+</html>
